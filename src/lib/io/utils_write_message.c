@@ -29,7 +29,7 @@ int write_message(WRITER *writer, char const *buffer, uint64_t bytes) {
     if (buffer == (char *)NULL) return (0);
 
 #ifdef TM_USE_MPI
-    status = WriteRecordData((void *)buffer, (MPI_Offset *)&bytes, writer);
+    status = WriteRecordData((void *)buffer, &bytes, writer);
 #else
   status = limeWriteRecordData((void *)buffer, &bytes, writer);
 #endif
